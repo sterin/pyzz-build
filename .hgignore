@@ -1,0 +1,11 @@
+syntax: glob
+
+pyzz_*/
+*.tgz
+
+.idea/
+
+*.pyc
+*.pyo
+
+xxx*
