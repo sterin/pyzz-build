@@ -40,6 +40,15 @@ class build_ext(_build_ext):
             '-DPYTHON_EXECUTABLE=%s'%sys.executable,
         ]
 
+        # ugly workaround
+        if sys.platform=='darwin':
+            python_library = '%s/libpython%d.%d.dylib'%(
+                sysconfig.get_config_var('LIBDIR'),
+                sys.version_info.major,
+                sys.version_info.minor
+            )
+            cmake_options.append('-DPYTHON_LIBRARY=%s'%python_library)
+
         if self.debug:
             cmake_options.append('-DCMAKE_BUILD_TYPE=Debug')
         else:
