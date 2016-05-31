@@ -1,6 +1,7 @@
 
 import os
 import sys
+import sysconfig
 import subprocess
 import shutil
 
@@ -34,6 +35,8 @@ class build_ext(_build_ext):
             'cmake',
             '-G', 'Ninja',
             '-DCMAKE_INSTALL_PREFIX=%s'%self.install_dir,
+            '-DCMAKE_C_COMPILER=%s'%sysconfig.get_config_var('CC'),
+            '-DCMAKE_CXX_COMPILER=%s'%sysconfig.get_config_var('CXX'),
             '-DPYTHON_EXECUTABLE=%s'%sys.executable,
         ]
 
