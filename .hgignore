@@ -9,3 +9,5 @@ pyzz_*/
 *.pyo
 
 xxx*
+
+build/

@@ -1,3 +1,11 @@
-abc-zz = http://bitbucket.org/sterin/abc-zz
-pyzz = http://bitbucket.org/sterin/pyzz
-pywrapper = http://bitbucket.org/sterin/pywrapper
+abc = abc
+abc-zz = abc-zz
+pyzz = pyzz
+pywrapper = pywrapper
+cmake = cmake
+
+[subpaths]
+
+^(.*)/pyzz_build/(abc-zz|pyzz|pywrapper)$ = \1/\2
+^(.*)/sterin/pyabc_extension_build/abc$ = \1/alanmi/abc
+^(.*)/pyabc_extension_build/cmake$ = \1/pyabc_cmake
