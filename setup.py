@@ -1,15 +1,15 @@
-import setuptools
 
 import os
 import sys
-import platform
 import subprocess
 import shutil
 
-from distutils.command.build_ext import build_ext as _build_ext
 from setuptools import setup, Extension
+from distutils.command.build_ext import build_ext as _build_ext
 
 source_dir = os.path.dirname(os.path.abspath(__file__))
+
+# build extensions using CMake/Ninja
 
 class build_ext(_build_ext):
 
@@ -60,7 +60,7 @@ setup(
     version = "0.0.1",
     description = "",
     url="https://bitbucket.org/sterin/pyzz_build",
-    author='Baruch sterin',
+    author='Baruch Sterin',
     author_email='pyzz@bsterin.com',
     license="MIT/BSD-like",
     classifiers=[
@@ -72,8 +72,12 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
     keywords = '',
-    packages = ['pyzz'],
-    package_dir={'pyzz':'pyzz/'},
+    packages = [
+        'pyzz',
+    ],
+    package_dir={
+        'pyzz':'pyzz/pyzz',
+    },
     include_package_data = True,
     zip_safe = False,
     cmdclass = dict(build_ext=build_ext),
