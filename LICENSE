@@ -1,0 +1,49 @@
+Files under abc/ are covered by abc/copyright.txt, except for:
+
+* abc/src/misc/zlib, which is covered by abc/src/misc/zlib/license
+* abc/src/misc/bzlib, which is covered by abc/src/misc/bzlib/LICENSE
+* abc/src/bdd/{epd,cudd,mtr} covered by abc/src/bdd/cudd/license
+* abc/src/sat/bsat covered by abc/src/sat/bsat/license
+* abc/src/sat/bsat2 covered by abc/src/sat/bsat2/LICENSE
+
+Files under abc-zz/ are covered by abc-zz/LICENSE, except for:
+
+* Abc/misc,zlib,* which are covered by abc/src/misc/zlib/license
+* Abc/misc,bzlib,* which are covered by abc/src/misc/bzlib/LICENSE
+* Abc/bdd,{epd,cudd,mtr},* covered by abc/src/bdd/cudd/license
+* Abc/sat,bsat,* covered by abc/src/sat/bsat/license
+* Abc/sat,bsat2,* covered by abc/src/sat/bsat2/LICENSE
+* abc-zz/EXTERN/SiertSat covered by abc-zz/EXTERN/SiertSat/LICENSE.txt
+* abc-zz/EXTERN/zlib covered by abc-zz/EXTERN/zlib/README
+
+Files under cmake are covered by cmake/LICENSE
+
+Files under pywrapper/ are covered by pywrapper/LICENSE
+
+Files under pyzz/ are covered by pyzz/pywrapper
+
+Files in the top-level directory are covered by the below licence, known as the "MIT/X11 licence".
+
+_____________________________________________________________________
+
+Copyright (c) 2010-2014 The Regents of the University of California
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+______________________________________________________________________
