@@ -7,5 +7,5 @@ cmake = cmake
 [subpaths]
 
 ^(.*)/pyzz_build/(abc-zz|pyzz|pywrapper)$ = \1/\2
-^(.*)/sterin/pyabc_extension_build/abc$ = \1/alanmi/abc
-^(.*)/pyabc_extension_build/cmake$ = \1/pyabc_cmake
+^(.*)/sterin/pyzz_build/abc$ = \1/alanmi/abc
+^(.*)/pyzz_build/cmake$ = \1/pyabc_cmake
