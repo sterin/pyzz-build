@@ -35,8 +35,6 @@ class build_ext(_build_ext):
             'cmake',
             '-G', 'Ninja',
             '-DCMAKE_INSTALL_PREFIX=%s'%self.install_dir,
-            '-DCMAKE_C_COMPILER=%s'%sysconfig.get_config_var('CC'),
-            '-DCMAKE_CXX_COMPILER=%s'%sysconfig.get_config_var('CXX'),
             '-DPYTHON_EXECUTABLE=%s'%sys.executable,
         ]
 
@@ -48,6 +46,8 @@ class build_ext(_build_ext):
                 sys.version_info.minor
             )
             cmake_options.append('-DPYTHON_LIBRARY=%s'%python_library)
+            cmake_options.append('-DCMAKE_C_COMPILER=%s'%sysconfig.get_config_var('CC').split(' ')[0])
+            cmake_options.append('-DCMAKE_CXX_COMPILER=%s'%sysconfig.get_config_var('CXX').split(' ')[0])
 
         if self.debug:
             cmake_options.append('-DCMAKE_BUILD_TYPE=Debug')
