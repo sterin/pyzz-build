@@ -62,7 +62,7 @@ setup(
     url="https://bitbucket.org/sterin/pyzz_build",
     author='Baruch sterin',
     author_email='pyzz@bsterin.com',
-    license="BSD-like",
+    license="MIT/BSD-like",
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Science/Research',
