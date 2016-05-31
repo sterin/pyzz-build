@@ -1,6 +1,6 @@
 # PyZZ
 
-This repository combines the various tools and libraries needed for building [https://bitbucket.org/sterin/pyzz](pyzz).
+This repository combines the various tools and libraries needed for building [pyzz[(https://bitbucket.org/sterin/pyzz)
 
 # Requirements
 
