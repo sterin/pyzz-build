@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sterin/pyzz-build.svg?branch=master)](https://travis-ci.org/sterin/pyzz-build)
+
 # PyZZ
 
 This repository combines the various tools and libraries needed for building [pyzz](https://bitbucket.org/sterin/pyzz)
@@ -10,11 +12,11 @@ This repository combines the various tools and libraries needed for building [py
 * Python 2.7 with development headers and libraries
 * setuptools
 * Zlib header files and libraries
-* Mercurial
+* Git
 
 For example, in Ubuntu 16.04, run the following command to satisfy all the requirements:
 
-    sudo apt-get install cmake ninja-build g++ python-dev python-setuptools mercurial zlib1g-dev
+    sudo apt-get install cmake ninja-build g++ python-dev python-setuptools git zlib1g-dev
 
 Note that the version of CMake included in previous releases of Ubuntu is too old. This requires CMake 3.3 or above to be manually installed.
 
