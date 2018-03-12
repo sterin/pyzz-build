@@ -1,17 +1,11 @@
-syntax: glob
-
 .idea/
 
 *.pyc
 *.pyo
 
-# Python setup tools
-
 build/
 bdist/
 dist/
 *.egg-info/
-
-# other
 
 .tags*
