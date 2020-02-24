@@ -68,8 +68,8 @@ class build_ext(_build_ext):
             shutil.copyfile(src, dst)
 
 setup(
-    name = "PyZZ",
-    version = "0.0.1",
+    name = "pyzz",
+    version = "0.0.2",
     description = "",
     url="https://bitbucket.org/sterin/pyzz_build",
     author='Baruch Sterin',
