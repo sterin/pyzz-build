@@ -45,7 +45,7 @@ deploy:
   file_glob: true
   file: 
     - pyzz_extension-*.tar.gz
-    - ../dist/PyZZ-*.whl
+    - ../dist/pyzz-*.whl
   on:
     repo: sterin/pyzz-build
     tags: true
