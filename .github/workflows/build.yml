@@ -41,7 +41,7 @@ jobs:
     - name: Create package
       run: |
         pip install wheel
-        python setup.py bdist_wheel ${{ matrix.platform-options }}
+        PATH=~/Library/Python/2.7/bin:$PATH python setup.py bdist_wheel ${{ matrix.platform-options }}
 
     - name: Publish package
       # if: startsWith(github.event.ref, 'refs/tags')
