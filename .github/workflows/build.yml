@@ -35,13 +35,13 @@ jobs:
         
     - name: Build
       run: |
-        pip install --user ninja
-        PATH=~/Library/Python/2.7/bin:$PATH python setup.py build
+        pip install ninja
+        python setup.py build
 
     - name: Create package
       run: |
         pip install wheel
-        PATH=~/Library/Python/2.7/bin:$PATH python setup.py bdist_wheel ${{ matrix.platform-options }}
+        python setup.py bdist_wheel ${{ matrix.platform-options }}
 
     - name: Publish package
       # if: startsWith(github.event.ref, 'refs/tags')
