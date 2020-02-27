@@ -7,6 +7,5 @@ graft pyzz
 graft cmake
 
 include CMakeLists.txt
-include .hgsub .hgsubstate
 include LICENSE README.md
 include setup.py setup.cfg MANIFEST.in

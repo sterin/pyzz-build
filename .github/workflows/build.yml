@@ -11,6 +11,11 @@ jobs:
         os:
           - ubuntu-16.04
           # - macos-latest
+        include:
+          - os: ubuntu-16.04
+            python-version: "2.7"
+            platform-options: "--plat-name=manylinux2014_x86_64"
+        
 
     runs-on: ${{ matrix.os }}
 
@@ -36,7 +41,7 @@ jobs:
     - name: Create package
       run: |
         pip install wheel
-        python setup.py bdist_wheel
+        python setup.py ${{ matrix.platform-options }} bdist_wheel
 
     - name: Publish package
       if: startsWith(github.event.ref, 'refs/tags')
