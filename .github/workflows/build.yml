@@ -9,12 +9,12 @@ jobs:
         python-version: 
           - "2.7"
         os:
-          - ubuntu-16.04
-          # - macos-latest
-        include:
-          - os: ubuntu-16.04
-            python-version: "2.7"
-            platform-options: "--plat-name=manylinux2014_x86_64"
+          # - ubuntu-16.04
+          - macos-latest
+        # include:
+        #   - os: ubuntu-16.04
+        #     python-version: "2.7"
+        #     platform-options: "--plat-name=manylinux2014_x86_64"
         
 
     runs-on: ${{ matrix.os }}
@@ -44,7 +44,7 @@ jobs:
         python setup.py bdist_wheel ${{ matrix.platform-options }}
 
     - name: Publish package
-      if: startsWith(github.event.ref, 'refs/tags')
+      # if: startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
       with:
         user: __token__
