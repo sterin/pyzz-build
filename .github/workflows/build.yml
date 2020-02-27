@@ -35,6 +35,7 @@ jobs:
         
     - name: Build
       run: |
+        find /Users/runner/hostedtoolcache/Python/2.7.17/x64/
         pip install ninja
         python setup.py build
 
