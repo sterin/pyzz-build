@@ -15,6 +15,9 @@ jobs:
           - os: ubuntu-16.04
             python-version: "2.7"
             platform-options: "--plat-name=manylinux2014_x86_64"
+          - os: macos-latest
+            python-version: "2.7"
+            platform-options: "--plat-name=macosx_10_14_x86_64"
 
     runs-on: ${{ matrix.os }}
 
@@ -44,6 +47,7 @@ jobs:
         python setup.py bdist_wheel ${{ matrix.platform-options }}
 
     - name: Publish package
+      if: startsWith(github.event.ref, 'refs/tags')
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.pypi_password }}

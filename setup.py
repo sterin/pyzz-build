@@ -69,7 +69,7 @@ class build_ext(_build_ext):
 
 setup(
     name = "pyzz",
-    version = "0.0.10",
+    version = "0.0.11",
     description = "",
     url="https://github.com/sterin/pyzz-build",
     author='Baruch Sterin',
