@@ -69,9 +69,9 @@ class build_ext(_build_ext):
 
 setup(
     name = "pyzz",
-    version = "0.0.4",
+    version = "0.0.5",
     description = "",
-    url="https://bitbucket.org/sterin/pyzz_build",
+    url="https://github.com/sterin/pyzz-build",
     author='Baruch Sterin',
     author_email='pyzz@bsterin.com',
     license="MIT/BSD-like",
