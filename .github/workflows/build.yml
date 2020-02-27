@@ -28,15 +28,17 @@ jobs:
       run: |
         git submodule update --init --force --recursive
     
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
+    # - name: Set up Python ${{ matrix.python-version }}
+    #   uses: actions/setup-python@v1
+    #   with:
+    #     python-version: ${{ matrix.python-version }}
         
     - name: Build
       run: |
-        find /Users/runner/hostedtoolcache/Python
-        pip install ninja
+        python --version
+        python2 --version
+        python3 --version
+        pip install --user ninja
         python setup.py build
 
     - name: Create package
