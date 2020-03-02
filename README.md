@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/sterin/pyzz-build.svg?branch=master)](https://travis-ci.org/sterin/pyzz-build)
 
+
 # PyZZ
 
 This repository combines the various tools and libraries needed for building [pyzz](https://bitbucket.org/sterin/pyzz)
@@ -31,3 +32,33 @@ Note that the version of CMake included in previous releases of Ubuntu is too ol
 or (only for the current user)
 
     python setup.py install --user
+
+
+## Windows
+
+Building on Windows is more complicated. The simplest way is to use `vcpkg` to gather the dependencies.
+
+### Vcpkg
+
+Clone the repository
+
+    git clone https://github.com/Microsoft/vcpkg
+
+Change into the `vcpkg` directory, and bootstrap
+
+    cd vcpkg
+    ./bootstrap-vcpkg.bat
+
+Install the relevant pacakges
+
+    ./vcpkg.exe install dirent:x64-windows-static-md zlib:x64-windows-static-md
+
+Build the extension
+
+    python setup.py \
+        build_ext \
+            --cmake-platform=x64 \
+            --vcpkg-path=vcpkg \
+            --vcpkg-triplet=x64-windows-static-md \
+        build \
+        install

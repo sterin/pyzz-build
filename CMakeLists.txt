@@ -1,12 +1,14 @@
-cmake_minimum_required(VERSION 3.3.0)
+cmake_minimum_required(VERSION 3.16.0)
 
 project(pyzz_extension)
 
 include(cmake/pyabc.cmake)
 
-add_subdirectory(abc EXCLUDE_FROM_ALL)
+if( NOT WIN32 )
+    add_subdirectory(abc EXCLUDE_FROM_ALL)
+    set(ZZ_USE_EXTERNAL_LIBABC TRUE)
+endif()
 
-set(ZZ_USE_EXTERNAL_LIBABC TRUE)
 add_subdirectory(abc-zz EXCLUDE_FROM_ALL)
 
 add_subdirectory(pywrapper EXCLUDE_FROM_ALL)

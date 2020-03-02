@@ -6,18 +6,23 @@ jobs:
 
     strategy:
       matrix:
-        python-version: 
-          - "2.7"
         os:
           - ubuntu-16.04
           - macos-latest
+          - windows-latest
         include:
           - os: ubuntu-16.04
-            python-version: "2.7"
-            platform-options: "--plat-name=manylinux2014_x86_64"
+            cmake-generator: Ninja
+            setup-python: 2.7
+            wheel-platform: "manylinux2014_x86_64"
           - os: macos-latest
-            python-version: "2.7"
-            platform-options: "--plat-name=macosx_10_14_x86_64"
+            cmake-generator: Ninja
+            wheel-platform: "macosx_10_14_x86_64"
+          - os: windows-latest
+            setup-python: 2.7
+            cmake-platform: 'x64'
+            vcpkg-path: '${VCPKG_INSTALLATION_ROOT}'
+            vcpkg-triplet: 'x64-windows-static-md'
 
     runs-on: ${{ matrix.os }}
 
@@ -30,21 +35,41 @@ jobs:
       run: |
         git submodule update --init --force --recursive
     
-    - name: Set up Python ${{ matrix.python-version }}
-      if: startsWith(matrix.os, 'ubuntu')
+    - name: Set up Python
+      if: matrix.setup-python
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: ${{ matrix.setup-python }}
         
-    - name: Build
+    - name: Install Ninja
+      if: contains(matrix.cmake-generator, 'Ninja')
       run: |
         pip install ninja
-        python setup.py build
 
-    - name: Create package
+    - name: Run vcpkg
+      if: startsWith(matrix.os, 'windows')
+      run: |
+        vcpkg install dirent:x64-windows-static-md zlib:x64-windows-static-md
+
+    - name: Build extension
+      shell: bash
+      run: |
+        python setup.py \
+          build_ext \
+            ${{ matrix.cmake-generator && format('--cmake-generator="{0}"', matrix.cmake-generator) }} \
+            ${{ matrix.cmake-platform && format('--cmake-platform="{0}"', matrix.cmake-platform) }} \
+            ${{ matrix.vcpkg-path && format('--vcpkg-path="{0}"', matrix.vcpkg-path) }} \
+            ${{ matrix.vcpkg-triplet && format('--vcpkg-triplet="{0}"', matrix.vcpkg-triplet) }} \
+          build
+
+    - name: Build wheel
+      shell: bash
       run: |
         pip install wheel
-        python setup.py bdist_wheel ${{ matrix.platform-options }}
+        python setup.py \
+          bdist_wheel \
+            --skip-build \
+            ${{ matrix.wheel-platform && format('--plat-name={0}', matrix.wheel-platform) }}
 
     - name: Publish package
       if: startsWith(github.event.ref, 'refs/tags')
