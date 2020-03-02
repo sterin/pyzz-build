@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sterin/pyzz-build.svg?branch=master)](https://travis-ci.org/sterin/pyzz-build)
+![.github/workflows/build.yml](https://github.com/sterin/pyzz-build/workflows/.github/workflows/build.yml/badge.svg)
 
 
 # PyZZ
